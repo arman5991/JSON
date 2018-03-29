@@ -35,44 +35,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadJSON() {
-
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://ec2-54-244-189-132.us-west-2.compute.amazonaws.com:8080/phonebook/api/v1/")
+                .baseUrl("https://api.learn2crack.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Request request = retrofit.create(Request.class);
-        Call<ModelGson> call = request.getJSON();
-        Log.i("sssssssssssssssss", call.request().toString());
-
-        call.enqueue(new Callback<ModelGson>() {
+        Call<JSONResponse> call = request.getJSON();
+        call.enqueue(new Callback<JSONResponse>() {
             @Override
-            public void onResponse(Call<ModelGson> call, Response<ModelGson> response) {
+            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
-                ModelGson jsonResponse = response.body();
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getMessage()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getResponseStatus()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getId()));
-                Log.i("ssssssssss", jsonResponse.getUser().getFirstName());
-                Log.i("ssssssssss", jsonResponse.getUser().getLastName());
-                Log.i("ssssssssss", jsonResponse.getUser().getMobileNumber());
-                Log.i("ssssssssss", jsonResponse.getUser().getBirthDate());
-                Log.i("ssssssssss", jsonResponse.getUser().getUserType());
-                Log.i("ssssssssss", jsonResponse.getUser().getUserStatus());
-                Log.i("ssssssssss", jsonResponse.getUser().getGender());
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getAge()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getUserEmails()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getUserInterests()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getUserPhoneNumbers()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getUserProfessions()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getUserWorkplaces()));
-                Log.i("ssssssssss", String.valueOf(jsonResponse.getUser().getBusinesses()));
-                modelList = new ArrayList<>(Arrays.asList(jsonResponse));
-//                adapter = new RecyclerViewAdapter(modelList);
-                recyclerView.setAdapter(new RecyclerViewAdapter(modelList, MainActivity.this));
+                JSONResponse jsonResponse = response.body();
+                modelList = new ArrayList<>(Arrays.asList(jsonResponse.getAndroid()));
+                recyclerView.setAdapter(new RecyclerViewAdapter(modelList));
             }
 
             @Override
-            public void onFailure(Call<ModelGson> call, Throwable t) {
+            public void onFailure(Call<JSONResponse> call, Throwable t) {
                 Log.d("Error", t.getMessage());
             }
         });

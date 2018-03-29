@@ -1,43 +1,25 @@
-
 package json.com.json;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class ModelGson {
+    private String ver;
+    private String name;
+    private String api;
 
-    @SerializedName("message")
-    @Expose
-    private String message;
-    @SerializedName("responseStatus")
-    @Expose
-    private String responseStatus;
-    @SerializedName("user")
-    @Expose
-    private User user;
-
-    public String getMessage() {
-        return message;
+    public ModelGson(String version, String name, String api) {
+        this.ver = version;
+        this.name = name;
+        this.api = api;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public String getVer() {
+        return ver;
     }
 
-    public String getResponseStatus() {
-        return responseStatus;
+    public String getName() {
+        return name;
     }
 
-    public void setResponseStatus(String responseStatus) {
-        this.responseStatus = responseStatus;
+    public String getApi() {
+        return api;
     }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
 }

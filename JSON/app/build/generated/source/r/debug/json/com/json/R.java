@@ -2524,7 +2524,6 @@ containing a value of this type.
         public static final int icon_group=0x7f0b0071;
         public static final int ifRoom=0x7f0b0028;
         public static final int image=0x7f0b0032;
-        public static final int img_quest_image=0x7f0b007a;
         public static final int info=0x7f0b006d;
         public static final int item_touch_helper_previous_elevation=0x7f0b0005;
         public static final int line1=0x7f0b0072;
@@ -2589,9 +2588,9 @@ containing a value of this type.
         public static final int title_template=0x7f0b0043;
         public static final int top=0x7f0b002c;
         public static final int topPanel=0x7f0b0042;
-        public static final int tv_qid=0x7f0b0077;
-        public static final int tv_quest_address=0x7f0b0079;
-        public static final int tv_quest_name=0x7f0b0078;
+        public static final int tv_api=0x7f0b0079;
+        public static final int tv_name=0x7f0b0078;
+        public static final int tv_version=0x7f0b0077;
         public static final int up=0x7f0b0009;
         public static final int useLogo=0x7f0b001b;
         public static final int withText=0x7f0b002a;

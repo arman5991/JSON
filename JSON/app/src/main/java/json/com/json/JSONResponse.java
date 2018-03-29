@@ -2,9 +2,9 @@ package json.com.json;
 
 public class JSONResponse {
 
-    private ModelGson[] contacts;
+    private ModelGson[] android;
 
     public ModelGson[] getAndroid() {
-        return contacts;
+        return android;
     }
 }
